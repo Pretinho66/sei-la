@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+  <title>🇧🇷 BOLÃO BRASIL VS JAPÃO 🇯🇵</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ----- RESET & BASE ----- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(145deg, #0b3b1f 0%, #1f6e3a 45%, #b8860b 80%, #d4a017 100%);
+      min-height: 100vh;
+      padding: 1.5rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #1e1e1e;
+    }
+
+    .container {
+      max-width: 1280px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(3px);
+      border-radius: 3rem 3rem 2rem 2rem;
+      padding: 2rem 2rem 1.5rem;
+      box-shadow: 0 25px 40px -10px rgba(0,0,0,0.6);
+      border: 2px solid #f7e05e;
+      transition: all 0.2s;
+    }
+
+    /* ----- HEADER ----- */
+    header {
+      text-align: center;
+      padding-bottom: 1.5rem;
+      border-bottom: 3px dashed #b8860b;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      background: linear-gradient(135deg, #006b2f, #f7c948);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 2px 2px 0 rgba(0,0,0,0.05);
+    }
+
+    header .sub {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1e3b1e;
+      background: rgba(255, 215, 0, 0.25);
+      display: inline-block;
+      padding: 0.2rem 2rem;
+      border-radius: 40px;
+      margin-top: 0.2rem;
+      backdrop-filter: blur(2px);
+    }
+
+    .match-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+      font-weight: 600;
+      color: #222;
+    }
+
+    .match-info span {
+      background: #faf3e0;
+      padding: 0.3rem 1.4rem;
+      border-radius: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .countdown-box {
+      margin-top: 0.8rem;
+      font-size: 1.6rem;
+      font-weight: 700;
+      background: #1f3b1f;
+      color: #f7e05e;
+      padding: 0.2rem 1.8rem;
+      border-radius: 60px;
+      display: inline-block;
+      letter-spacing: 3px;
+      box-shadow: 0 0 12px #f7e05e88;
+    }
+
+    /* ----- SEÇÃO DE APOSTAS ----- */
+    .bet-section {
+      margin: 2rem 0 2.5rem;
+      background: #fefcf5;
+      border-radius: 2.5rem;
+      padding: 1.8rem 2rem 2.2rem;
+      box-shadow: inset 0 0 0 1px #e9dba7, 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    .bet-section h2 {
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #1e4a1e;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+
+    .bet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem 2rem;
+    }
+
+    .bet-grid .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .bet-grid label {
+      font-weight: 600;
+      color: #0f3b0f;
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.95rem;
+    }
+
+    .bet-grid input, .bet-grid select {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid #c7b07b;
+      border-radius: 40px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      background: white;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .bet-grid input:focus {
+      border-color: #b8860b;
+      box-shadow: 0 0 0 4px #f7e05e66;
+      outline: none;
+    }
+
+    .team-options {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .team-card {
+      flex: 1;
+      min-width: 90px;
+      background: white;
+      border: 3px solid #d0c09a;
+      border-radius: 60px;
+      padding: 0.7rem 0.5rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .team-card:hover {
+      transform: scale(1.02);
+      border-color: #b8860b;
+    }
+
+    .team-card.selected {
+      border-color: #b8860b;
+      background: #f7eec8;
+      box-shadow: 0 0 0 4px #f7e05e, 0 4px 12px rgba(184, 134, 11, 0.4);
+      transform: scale(1.02);
+    }
+
+    .team-card[data-team="Brasil"] { border-left: 8px solid #009739; }
+    .team-card[data-team="Japão"] { border-left: 8px solid #bc002d; }
+    .team-card[data-team="Empate"] { border-left: 8px solid #8b7d3c; }
+
+    .score-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .score-group div {
+      flex: 1;
+      min-width: 100px;
+    }
+
+    .bet-actions {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 1rem;
+    }
+
+    .btn-primary {
+      background: #1f6e3a;
+      border: none;
+      color: white;
+      font-weight: 700;
+      font-size: 1.2rem;
+      padding: 0.9rem 2.8rem;
+      border-radius: 60px;
+      cursor: pointer;
+      box-shadow: 0 4px 0 #0a3b1a;
+      transition: 0.1s ease;
+      letter-spacing: 0.5px;
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .btn-primary:active {
+      transform: translateY(4px);
+      box-shadow: 0 1px 0 #0a3b1a;
+    }
+
+    .btn-primary:hover {
+      background: #2a864a;
+    }
+
+    /* ----- ESTATÍSTICAS ----- */
+    .stats-section {
+      background: #f3f0e3;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: inset 0 0 0 1px #dacdab;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1.2fr;
+      gap: 1.8rem;
+      align-items: start;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: 1.8rem;
+      padding: 1.2rem 1.2rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    }
+
+    .stat-card h3 {
+      font-size: 1.2rem;
+      color: #1e3b1e;
+      border-bottom: 2px solid #e9dba7;
+      padding-bottom: 0.4rem;
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-number {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #1f6e3a;
+    }
+
+    .progress-bar-container {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      margin: 0.5rem 0;
+    }
+
+    .progress-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .progress-item span:first-child {
+      min-width: 70px;
+      font-weight: 600;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 20px;
+      background: #e0daca;
+      border-radius: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #b8860b;
+      border-radius: 40px;
+      transition: width 0.3s ease;
+    }
+
+    .progress-fill.br { background: #009739; }
+    .progress-fill.jp { background: #bc002d; }
+    .progress-fill.em { background: #7f6b2b; }
+
+    .top-bet {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0f3b0f;
+    }
+
+    .last-bets-list {
+      list-style: none;
+      font-size: 0.95rem;
+    }
+
+    .last-bets-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid #eee7d5;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .last-bets-list .time-badge {
+      background: #b8860b20;
+      padding: 0 12px;
+      border-radius: 30px;
+      font-weight: 600;
+    }
+
+    /* ----- RANKING ----- */
+    .ranking-section {
+      background: #fcf9f0;
+      border-radius: 2rem;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.8rem;
+      box-shadow: inset 0 0 0 1px #dacdab;
+    }
+
+    .ranking-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .rank-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 0.8rem 2rem 1.2rem;
+      min-width: 160px;
+      flex: 1;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      border: 1px solid #e9dba7;
+    }
+
+    .rank-card.gold { border-top: 8px solid #ffc107; }
+    .rank-card.silver { border-top: 8px solid #b0b0b0; }
+    .rank-card.bronze { border-top: 8px solid #cd7f32; }
+
+    .rank-pos {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1f3b1f;
+    }
+
+    .rank-name {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
+
+    .rank-value {
+      font-weight: 600;
+      color: #1f6e3a;
+    }
+
+    /* ----- FOOTER ----- */
+    footer {
+      text-align: center;
+      padding-top: 1rem;
+      border-top: 2px solid #dacdab;
+      color: #2d3d2d;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    /* ----- TOAST / NOTIFICAÇÃO ----- */
+    .toast {
+      visibility: hidden;
+      min-width: 280px;
+      background: #1f6e3a;
+      color: white;
+      text-align: center;
+      border-radius: 60px;
+      padding: 0.8rem 2rem;
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s, visibility 0.3s;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      font-weight: 600;
+      z-index: 999;
+    }
+    .toast.show {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    /* ----- RESPONSIVO ----- */
+    @media (max-width: 950px) {
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .bet-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container { padding: 1rem; }
+      header h1 { font-size: 2rem; }
+      .stats-grid { grid-template-columns: 1fr; }
+      .team-options { flex-direction: column; }
+      .team-card { min-width: auto; }
+      .bet-actions { flex-direction: column; }
+      .btn-primary { width: 100%; }
+      .countdown-box { font-size: 1.2rem; padding: 0.2rem 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      header h1 { font-size: 1.6rem; }
+      .match-info { flex-direction: column; gap: 0.5rem; }
+      .score-group { flex-direction: column; gap: 0.8rem; }
+    }
+
+    /* extras */
+    .flag-icon { font-size: 1.5rem; line-height: 1; }
+    .inline-flex { display: inline-flex; align-items: center; gap: 6px; }
+  </style>
+</head>
+<body>
+  <div class="container" id="app">
+    <header>
+      <h1>🇧🇷 BOLÃO BRASIL VS JAPÃO 🇯🇵</h1>
+      <div class="sub">⚽ Quem vai ganhar o jogo de hoje?</div>
+      <div class="match-info">
+        <span>📅 Hoje - 21:00</span>
+        <span>🏟️ Arena MRV</span>
+      </div>
+      <div class="countdown-box" id="countdownDisplay">⏳ 02:15:30</div>
+    </header>
+
+    <!-- APOSTAS -->
+    <section class="bet-section">
+      <h2>📝 Faça sua aposta!</h2>
+      <div class="bet-grid">
+        <div class="full-width">
+          <label>👤 Nome do apostador</label>
+          <input type="text" id="betName" placeholder="Ex: João Silva" />
+        </div>
+        <div class="full-width">
+          <label>🏆 Qual time vai ganhar?</label>
+          <div class="team-options" id="teamOptions">
+            <div class="team-card" data-team="Brasil">🇧🇷 Brasil</div>
+            <div class="team-card" data-team="Japão">🇯🇵 Japão</div>
+            <div class="team-card" data-team="Empate">🤝 Empate</div>
+          </div>
+        </div>
+        <div>
+          <label>🇧🇷 Gols Brasil</label>
+          <input type="number" id="scoreBr" min="0" value="0" />
+        </div>
+        <div>
+          <label>🇯🇵 Gols Japão</label>
+          <input type="number" id="scoreJp" min="0" value="0" />
+        </div>
+        <div class="full-width">
+          <label>💰 Valor da aposta (R$)</label>
+          <input type="number" id="betValue" min="1" step="0.5" value="10" />
+        </div>
+        <div class="full-width bet-actions">
+          <button class="btn-primary" id="registerBetBtn">✅ Registrar aposta</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTATÍSTICAS -->
+    <section class="stats-section" id="statsSection">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3>📊 Total de apostas</h3>
+          <div class="stat-number" id="totalBets">0</div>
+          <div style="margin-top: 8px; font-weight: 500;">💰 Maior aposta: <span id="highestBet">R$ 0</span></div>
+        </div>
+        <div class="stat-card">
+          <h3>📈 Distribuição</h3>
+          <div class="progress-bar-container">
+            <div class="progress-item"><span>🇧🇷</span><div class="progress-track"><div class="progress-fill br" id="pBr" style="width:0%"></div></div><span id="pBrText">0%</span></div>
+            <div class="progress-item"><span>🇯🇵</span><div class="progress-track"><div class="progress-fill jp" id="pJp" style="width:0%"></div></div><span id="pJpText">0%</span></div>
+            <div class="progress-item"><span>🤝</span><div class="progress-track"><div class="progress-fill em" id="pEm" style="width:0%"></div></div><span id="pEmText">0%</span></div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <h3>🕒 Últimas apostas</h3>
+          <ul class="last-bets-list" id="lastBetsList">
+            <li style="color:#666;">Nenhuma aposta ainda</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- RANKING -->
+    <section class="ranking-section">
+      <h2 style="font-size:1.8rem; margin-bottom:1rem;">🏅 Ranking dos Apostadores</h2>
+      <div class="ranking-grid" id="rankingContainer">
+        <div class="rank-card gold"><div class="rank-pos">🥇</div><div class="rank-name">—</div><div class="rank-value">R$ 0</div></div>
+        <div class="rank-card silver"><div class="rank-pos">🥈</div><div class="rank-name">—</div><div class="rank-value">R$ 0</div></div>
+        <div class="rank-card bronze"><div class="rank-pos">🥉</div><div class="rank-name">—</div><div class="rank-value">R$ 0</div></div>
+      </div>
+    </section>
+
+    <footer>
+      Bolão criado para a partida Brasil vs Japão - 29 de Junho de 2026
+    </footer>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast">✅ Aposta registrada!</div>
+
+  <script>
+    (function() {
+      "use strict";
+
+      // ----- DADOS MOCK INICIAIS (opcional) -----
+      const MOCK_BETS = [
+        { nome: "João", time: "Brasil", placarBrasil: 3, placarJapao: 1, valor: 50 },
+        { nome: "Maria", time: "Japão", placarBrasil: 0, placarJapao: 2, valor: 30 },
+        { nome: "Carlos", time: "Empate", placarBrasil: 1, placarJapao: 1, valor: 20 }
+      ];
+
+      // ----- ELEMENTOS DOM -----
+      const countdownEl = document.getElementById('countdownDisplay');
+      const teamCards = document.querySelectorAll('.team-card');
+      const betName = document.getElementById('betName');
+      const scoreBr = document.getElementById('scoreBr');
+      const scoreJp = document.getElementById('scoreJp');
+      const betValue = document.getElementById('betValue');
+      const registerBtn = document.getElementById('registerBetBtn');
+      const totalBetsEl = document.getElementById('totalBets');
+      const highestBetEl = document.getElementById('highestBet');
+      const lastBetsList = document.getElementById('lastBetsList');
+      const rankingContainer = document.getElementById('rankingContainer');
+
+      // Barras
+      const pBr = document.getElementById('pBr');
+      const pJp = document.getElementById('pJp');
+      const pEm = document.getElementById('pEm');
+      const pBrText = document.getElementById('pBrText');
+      const pJpText = document.getElementById('pJpText');
+      const pEmText = document.getElementById('pEmText');
+
+      const toastEl = document.getElementById('toast');
+
+      // ----- ESTADO -----
+      let selectedTeam = null; // 'Brasil', 'Japão', 'Empate'
+      let bets = [];
+
+      // ----- LOCALSTORAGE -----
+      function loadBets() {
+        const stored = localStorage.getItem('bolaoBets');
+        if (stored) {
+          try { bets = JSON.parse(stored); } catch(e) { bets = []; }
+        } else {
+          // se não houver dados, insere mock
+          bets = MOCK_BETS.map(b => ({ ...b, id: Date.now() + Math.random() }));
+          saveBets();
+        }
+        // garantir que todos os campos existam
+        bets = bets.filter(b => b.nome && b.time && typeof b.valor === 'number');
+      }
+
+      function saveBets() {
+        localStorage.setItem('bolaoBets', JSON.stringify(bets));
+      }
+
+      // ----- RENDERIZAÇÃO -----
+      function renderStats() {
+        const total = bets.length;
+        totalBetsEl.textContent = total;
+
+        // maior aposta
+        let highest = 0;
+        bets.forEach(b => { if (b.valor > highest) highest = b.valor; });
+        highestBetEl.textContent = `R$ ${highest.toFixed(2)}`;
+
+        // percentuais
+        let countBr = 0, countJp = 0, countEm = 0;
+        bets.forEach(b => {
+          if (b.time === 'Brasil') countBr++;
+          else if (b.time === 'Japão') countJp++;
+          else if (b.time === 'Empate') countEm++;
+        });
+        const pBrVal = total ? (countBr / total * 100) : 0;
+        const pJpVal = total ? (countJp / total * 100) : 0;
+        const pEmVal = total ? (countEm / total * 100) : 0;
+
+        pBr.style.width = pBrVal + '%';
+        pJp.style.width = pJpVal + '%';
+        pEm.style.width = pEmVal + '%';
+        pBrText.textContent = Math.round(pBrVal) + '%';
+        pJpText.textContent = Math.round(pJpVal) + '%';
+        pEmText.textContent = Math.round(pEmVal) + '%';
+
+        // últimas 5 apostas
+        const last5 = bets.slice(-5).reverse();
+        lastBetsList.innerHTML = '';
+        if (last5.length === 0) {
+          lastBetsList.innerHTML = '<li style="color:#666;">Nenhuma aposta ainda</li>';
+        } else {
+          last5.forEach(b => {
+            const li = document.createElement('li');
+            li.innerHTML = `<span><strong>${b.nome}</strong> ${b.time} ${b.placarBrasil}-${b.placarJapao}</span><span class="time-badge">R$ ${b.valor.toFixed(2)}</span>`;
+            lastBetsList.appendChild(li);
+          });
+        }
+
+        // Ranking (top 3 por valor)
+        const sorted = [...bets].sort((a, b) => b.valor - a.valor);
+        const top3 = sorted.slice(0, 3);
+        const rankCards = rankingContainer.querySelectorAll('.rank-card');
+        const medals = ['🥇', '🥈', '🥉'];
+        rankCards.forEach((card, idx) => {
+          const pos = card.querySelector('.rank-pos');
+          const name = card.querySelector('.rank-name');
+          const val = card.querySelector('.rank-value');
+          if (idx < top3.length) {
+            const b = top3[idx];
+            pos.textContent = medals[idx] || `#${idx+1}`;
+            name.textContent = b.nome || '—';
+            val.textContent = `R$ ${b.valor.toFixed(2)}`;
+          } else {
+            pos.textContent = medals[idx] || `#${idx+1}`;
+            name.textContent = '—';
+            val.textContent = 'R$ 0';
+          }
+        });
+      }
+
+      // ----- ADICIONAR APOSTA -----
+      function addBet() {
+        const name = betName.value.trim();
+        if (!name) { showToast('⚠️ Digite o nome do apostador'); return; }
+        if (!selectedTeam) { showToast('⚠️ Selecione um time'); return; }
+
+        const golsBr = parseInt(scoreBr.value);
+        const golsJp = parseInt(scoreJp.value);
+        if (isNaN(golsBr) || isNaN(golsJp) || golsBr < 0 || golsJp < 0) {
+          showToast('⚠️ Placar inválido');
+          return;
+        }
+
+        const valor = parseFloat(betValue.value);
+        if (isNaN(valor) || valor < 1) {
+          showToast('⚠️ Valor mínimo R$ 1,00');
+          return;
+        }
+
+        const newBet = {
+          id: Date.now() + Math.random(),
+          nome: name,
+          time: selectedTeam,
+          placarBrasil: golsBr,
+          placarJapao: golsJp,
+          valor: valor
+        };
+        bets.push(newBet);
+        saveBets();
+        renderStats();
+
+        // limpar campos (menos nome)
+        scoreBr.value = '0';
+        scoreJp.value = '0';
+        betValue.value = '10';
+        // manter nome? resetar seleção? 
+        // reset team selection
+        teamCards.forEach(c => c.classList.remove('selected'));
+        selectedTeam = null;
+
+        showToast(`✅ Aposta de ${name} registrada!`);
+        // efeito extra: foco no nome
+        betName.focus();
+      }
+
+      // ----- TOAST -----
+      let toastTimeout;
+      function showToast(msg) {
+        toastEl.textContent = msg;
+        toastEl.classList.add('show');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => toastEl.classList.remove('show'), 3000);
+      }
+
+      // ----- CONTAGEM REGRESSIVA (21:00 hoje)-----
+      function updateCountdown() {
+        const now = new Date();
+        const target = new Date();
+        target.setHours(21, 0, 0, 0);
+        // se já passou das 21, coloca pro dia seguinte (ou só mostra 00:00)
+        if (now > target) target.setDate(target.getDate() + 1);
+        const diff = Math.max(0, Math.floor((target - now) / 1000));
+        const h = String(Math.floor(diff / 3600)).padStart(2, '0');
+        const m = String(Math.floor((diff % 3600) / 60)).padStart(2, '0');
+        const s = String(diff % 60).padStart(2, '0');
+        countdownEl.textContent = `⏳ ${h}:${m}:${s}`;
+        if (diff === 0) countdownEl.textContent = '⚽ JOGO COMEÇOU!';
+      }
+
+      // ----- EVENTOS -----
+      // Seleção de time
+      teamCards.forEach(card => {
+        card.addEventListener('click', function() {
+          teamCards.forEach(c => c.classList.remove('selected'));
+          this.classList.add('selected');
+          selectedTeam = this.dataset.team;
+          // feedback sonoro? (simples)
+          // (efeito extra)
+        });
+      });
+
+      registerBtn.addEventListener('click', addBet);
+
+      // Enter no campo nome
+      betName.addEventListener('keydown', (e) => { if (e.key === 'Enter') registerBtn.click(); });
+
+      // ----- INICIALIZAÇÃO -----
+      function init() {
+        loadBets();
+        renderStats();
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        // Se houver apostas e nenhum time selecionado, define o primeiro como padrão? 
+        // melhor deixar o usuário escolher.
+        // pré-selecionar Brasil? não, melhor deixar neutro.
+        // mock: se não houver apostas, insere os mocks (já feito no loadBets)
+        // mas se o localStorage estiver vazio, já inserimos mock no loadBets
+        // Porém, se não houver dados, o loadBets já colocou mock e salvou.
+        // Para garantir que a UI mostre algo:
+        if (bets.length === 0) {
+          // tenta novamente forçar mock
+          bets = MOCK_BETS.map(b => ({ ...b, id: Date.now() + Math.random() }));
+          saveBets();
+          renderStats();
+        }
+        // adiciona um pequeno efeito de entrada
+        document.querySelector('.container').style.animation = 'fadeIn 0.6s ease';
+      }
+
+      // Adiciona keyframe de fade in (via estilo)
+      const styleFade = document.createElement('style');
+      styleFade.textContent = `
+        @keyframes fadeIn { from { opacity:0; transform: translateY(10px); } to { opacity:1; transform: translateY(0); } }
+      `;
+      document.head.appendChild(styleFade);
+
+      // Inicializa
+      init();
+
+      // Expor para testes (opcional)
+      window.__bets = bets; 
+    })();
+  </script>
+</body>
+</html>
